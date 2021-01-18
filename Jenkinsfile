@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-	  stage ("docker build push")
+	  stage ('docker build push')
         {
             
             withCredentials([string(credentialsId: 'docker-cred', variable: 'dockerhubpwd')]) {
