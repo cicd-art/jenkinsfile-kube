@@ -13,14 +13,17 @@ pipeline {
             }
         }
 
-	  stage ('docker build push')
+
+
+          stage ('docker build push')
         {
-            
+            steps {
             withCredentials([string(credentialsId: 'docker-cred', variable: 'dockerhubpwd')]) {
                 sh "docker login -u sachin13579 -p ${dockerhubpwd}"
                 sh "docker push sachin13579/nodeapp:${DOCKER_TAG}"
             }
         }
+      }
 
 
 
